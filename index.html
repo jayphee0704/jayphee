@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jayphee Sean Basco Portfolio</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #f9f9f9, #eaeaea);
+      color: #333;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #111;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-weight: bold;
+      margin: 0 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav button:hover {
+      color: #ff9800;
+    }
+
+    .container {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      padding: 20px;
+      gap: 30px;
+    }
+
+    .profile {
+      flex: 1;
+      text-align: center;
+      animation: fadeInLeft 1s ease;
+    }
+
+    .profile img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 4px solid #111;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
+    }
+
+    .profile img:hover {
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    .content {
+      flex: 3;
+      animation: fadeInUp 1s ease;
+    }
+
+    header {
+      padding-bottom: 15px;
+      border-bottom: 2px solid #111;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: #111;
+    }
+
+    section {
+      margin: 25px 0;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ff9800;
+      padding-bottom: 5px;
+      color: #111;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 8px 0;
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 6px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    li:hover {
+      transform: translateX(5px);
+      background: #ffe0b2;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 70%;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button.add-btn {
+      padding: 8px 12px;
+      background-color: #111;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    button.add-btn:hover {
+      background-color: #ff9800;
+    }
+
+    button.remove-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    button.remove-btn:hover {
+      background-color: darkred;
+    }
+
+    /* Animations */
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('projects')">Projects</button>
+  </nav>
+
+  <div class="container">
+    <!-- Profile Section -->
+    <div class="profile">
+      <!-- Replace 'your-photo.jpg' with your actual photo file -->
+      <img src="eee2bcd0-8e48-478b-b07d-6a86a242873b.jpg" alt="Jayphee Sean Basco">
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+      <!-- Home Page -->
+      <div id="home" class="page active">
+        <header>
+          <h1>Jayphee Sean Basco</h1>
+          <p>Student Number: 23-0218 | Section: C301</p>
+        </header>
+
+        <section>
+          <h2>About Me</h2>
+          <p>My name is Jayphee Sean Basco, and I’m someone who values growth,
+          creativity, and meaningful connections.
+          I enjoy exploring new opportunities that challenge me to learn
+          and push beyond my comfort zone. With a positive outlook and determination, I strive to make an impact in everything I do.
+          .</p>
+        </section>
+
+        <section>
+          <h2>Skills</h2>
+          <ul>
+            <li>Adaptability</li>
+            <li>Problem-Solving</li>
+            <li>Teamwork</li>
+            <li>Hardworker</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Educational Background</h2>
+          <p>Studied at Sto. Rosario Elementary School</p>
+          <p>Graduated at Francisco G. Nepomuceno Memorial High School</p>
+          <p>Present: City College of Angeles, Course: Computer Science</p>
+        </section>
+      </div>
+
+      <!-- Projects Page -->
+      <div id="projects" class="page">
+        <header>
+          <h1>My Projects</h1>
+          <p>Works, Assignments, and More</p>
+        </header>
+
+        <section>
+          <h2>Projects List</h2>
+          <input type="text" id="newProject" placeholder="Enter new project...">
+          <button class="add-btn" onclick="addProject()">Add Project</button>
+          <ul id="projectList"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    function addProject() {
+      const projectInput = document.getElementById('newProject');
+      const projectList = document.getElementById('projectList');
+      const newProject = projectInput.value.trim();
+
+      if (newProject !== "") {
+        const li = document.createElement('li');
+        li.innerHTML = `${newProject} <button class="remove-btn" onclick="removeProject(this)">Remove</button>`;
+        projectList.appendChild(li);
+        projectInput.value = "";
+      }
+    }
+
+    function removeProject(button) {
+      const li = button.parentElement;
+      li.remove();
+    }
+  </script>
+</body>
+</html>
