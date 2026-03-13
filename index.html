@@ -1,219 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jayphee Sean Basco Portfolio</title>
-  <style>
-    body {
-      background: linear-gradient(to right, #f9f9f9, #eaeaea);
-      color: #333;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayphee Sean Basco Portfolio</title>
 
-    nav {
-      background-color: #111;
-      padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+<style>
 
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      font-weight: bold;
-      margin: 0 20px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
+body{
+background: linear-gradient(135deg,#f5f7fa,#e4e8ec);
+font-family:'Segoe UI',Arial;
+margin:0;
+color:#333;
+}
 
-    nav button:hover {
-      color: #ff9800;
-    }
+/* NAVBAR */
 
-    .container {
-      display: flex;
-      width: 90%;
-      margin: auto;
-      padding: 20px;
-      gap: 30px;
-    }
+nav{
+background:#111;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
 
-    .profile {
-      flex: 1;
-      text-align: center;
-      animation: fadeInLeft 1s ease;
-    }
+nav button{
+background:none;
+border:none;
+color:white;
+font-weight:bold;
+margin:0 20px;
+cursor:pointer;
+font-size:16px;
+transition:0.3s;
+position:relative;
+}
 
-    .profile img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 4px solid #111;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease;
-    }
+nav button:hover{
+color:#ff9800;
+transform:scale(1.1);
+}
 
-    .profile img:hover {
-      transform: scale(1.05) rotate(3deg);
-    }
+/* CONTAINER */
 
-    .content {
-      flex: 3;
-      animation: fadeInUp 1s ease;
-    }
+.container{
+display:flex;
+width:90%;
+margin:auto;
+padding:30px 0;
+gap:40px;
+}
 
-    header {
-      padding-bottom: 15px;
-      border-bottom: 2px solid #111;
-    }
+/* PROFILE */
 
-    h1 {
-      margin: 0;
-      font-size: 2.2em;
-      color: #111;
-    }
+.profile{
+flex:1;
+text-align:center;
+animation:slideLeft 1s ease;
+}
 
-    section {
-      margin: 25px 0;
-    }
+.profile img{
+width:220px;
+height:220px;
+border-radius:50%;
+border:5px solid #111;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+transition:.4s;
+}
 
-    h2 {
-      border-bottom: 2px solid #ff9800;
-      padding-bottom: 5px;
-      color: #111;
-    }
+.profile img:hover{
+transform:scale(1.08) rotate(3deg);
+}
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
+/* CONTENT */
 
-    li {
-      margin: 8px 0;
-      background: #f2f2f2;
-      padding: 10px;
-      border-radius: 6px;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
+.content{
+flex:3;
+animation:fadeUp 1s ease;
+}
 
-    li:hover {
-      transform: translateX(5px);
-      background: #ffe0b2;
-    }
+header{
+border-bottom:3px solid #ff9800;
+padding-bottom:10px;
+}
 
-    .page {
-      display: none;
-    }
+h1{
+margin:0;
+font-size:2.3em;
+}
 
-    .active {
-      display: block;
-    }
+section{
+margin:25px 0;
+}
 
-    /* Animations */
-    @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-50px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+h2{
+border-left:5px solid #ff9800;
+padding-left:10px;
+}
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* LIST */
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+margin:10px 0;
+transition:.3s;
+}
+
+li:hover{
+transform:translateY(-5px);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* PROJECT GRID */
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.project-grid li{
+animation:fadeCard .7s ease;
+}
+
+/* BUTTON */
+
+.view-btn{
+margin-top:8px;
+padding:7px 12px;
+background:#111;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+transition:.3s;
+}
+
+.view-btn:hover{
+background:#ff9800;
+transform:scale(1.05);
+}
+
+/* SCREENSHOT */
+
+.screenshot{
+margin-top:10px;
+display:none;
+width:100%;
+border-radius:8px;
+border:2px solid #111;
+animation:zoomIn .4s ease;
+}
+
+/* PAGE */
+
+.page{
+display:none;
+animation:fadePage .6s ease;
+}
+
+.active{
+display:block;
+}
+
+/* ANIMATIONS */
+
+@keyframes slideLeft{
+from{opacity:0;transform:translateX(-50px);}
+to{opacity:1;transform:translateX(0);}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(50px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeCard{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+from{transform:scale(.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadePage{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.container{
+flex-direction:column;
+align-items:center;
+}
+
+.project-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-  <nav>
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('projects')">Projects</button>
-  </nav>
 
-  <div class="container">
-    <!-- Profile Section -->
-    <div class="profile">
-      <img src="eee2bcd0-8e48-478b-b07d-6a86a242873b.jpg" alt="Jayphee Sean Basco">
-    </div>
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('projects')">Projects</button>
+</nav>
 
-    <!-- Content Section -->
-    <div class="content">
-      <!-- Home Page -->
-      <div id="home" class="page active">
-        <header>
-          <h1>Jayphee Sean Basco</h1>
-          <p>Student Number: 23-0218 | Section: C301</p>
-        </header>
+<div class="container">
 
-        <section>
-          <h2>About Me</h2>
-          <p>My name is Jayphee Sean Basco, and I’m someone who values growth,
-          creativity, and meaningful connections.
-          I enjoy exploring new opportunities that challenge me to learn
-          and push beyond my comfort zone. With a positive outlook and determination, I strive to make an impact in everything I do.</p>
-        </section>
+<div class="profile">
+<img src="aabf5602-b6ef-455d-b419-d7d75da1c447.jpg">
+</div>
 
-        <section>
-          <h2>Skills</h2>
-          <ul>
-            <li>Adaptability</li>
-            <li>Problem-Solving</li>
-            <li>Teamwork</li>
-            <li>Hardworker</li>
-          </ul>
-        </section>
+<div class="content">
 
-        <section>
-          <h2>Educational Background</h2>
-          <p>Studied at Sto. Rosario Elementary School</p>
-          <p>Graduated at Francisco G. Nepomuceno Memorial High School</p>
-          <p>Present: City College of Angeles, Course: Computer Science</p>
-        </section>
-      </div>
+<!-- HOME -->
 
-      <!-- Projects Page -->
-      <div id="projects" class="page">
-        <header>
-          <h1>My Projects</h1>
-          <p>Works, Assignments, and More</p>
-        </header>
+<div id="home" class="page active">
 
-        <section>
-          <h2>Projects List</h2>
-          <ul id="projectList">
-            <li>
-              Practice Task 1 Demo File for Data Preparation and Cleaning<br>
-              Link: <a href="https://drive.usercontent.google.com/download?id=10abBNWTcA-2WZy_AA1nRK3-okgcMHjja&export=download&authuser=0" target="_blank">Download</a>
-            </li>
-            <li>
-              Practice Task_2_MS Excel Functions<br>
-              Link: <a href="https://drive.usercontent.google.com/download?id=1Fplcsw0MnVBrpz9MvqRwZwj59iGW4OSi&export=download&authuser=0" target="_blank">Download</a>
-            </li>
-            <li>
-              Practice Task 3_Demo Creating Dashboards in Excel<br>
-              Link: <a href="https://drive.usercontent.google.com/download?id=1-Jkvhx0_amKv5fgsK49Aw3-Y7PSJC9Ox&export=download&authuser=0" target="_blank">Download</a>
-            </li>
-            <li>
-              Practice Task 4. Power Query Demo<br>
-              Link: <a href="https://drive.usercontent.google.com/download?id=1uaWEnf-oVF6uMrAdd7IafggTir7_C-A-&export=download&authuser=0" target="_blank">Download</a>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </div>
-  </div>
+<header>
+<h1>Jayphee Sean Basco</h1>
+<p>Student Number: 23-0218 | Section: C301</p>
+</header>
 
-  <script>
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-      document.getElementById(pageId).classList.add('active');
-    }
-  </script>
+<section>
+<h2>About Me</h2>
+<p>My name is Jayphee Sean Basco, and I’m someone who values growth,
+creativity, and meaningful connections. I enjoy exploring new opportunities
+that challenge me to learn and push beyond my comfort zone. With a positive
+outlook and determination, I strive to make an impact in everything I do.</p>
+</section>
+
+<section>
+<h2>Skills</h2>
+<ul>
+<li>Adaptability</li>
+<li>Problem-Solving</li>
+<li>Teamwork</li>
+<li>Hardworker</li>
+</ul>
+</section>
+
+<section>
+<h2>Educational Background</h2>
+<p>Studied at Sto. Rosario Elementary School</p>
+<p>Graduated at Francisco G. Nepomuceno Memorial High School</p>
+<p>Present: City College of Angeles, Course: Computer Science</p>
+</section>
+
+</div>
+
+<!-- PROJECTS -->
+
+<div id="projects" class="page">
+
+<header>
+<h1>My Projects</h1>
+<p>Works, Assignments, and More</p>
+</header>
+
+<section>
+
+<h2>Projects List</h2>
+
+<ul class="project-grid">
+
+<li>
+<strong>Midterm Lab Task 1. Data Cleaning and Preparation</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=1p_wbwKMOTC9__ysvAZKaQXinpRNz1fBw&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('midterm1')">View Screenshot</button>
+<img id="midterm1" class="screenshot" src="unnamed.png">
+<p>
+    In this activity, I practiced preparing raw data for analysis by cleaning and organizing the dataset in Excel. 
+    I removed unnecessary values, corrected formatting issues, and ensured that the data was consistent and accurate. 
+    This task helped me understand the importance of clean data before performing any analysis.
+    </p>
+</li>
+
+<li>
+<strong>Midterm Task 2. Pivot Tables and Charts in Excel</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=1Fplcsw0MnVBrpz9MvqRwZwj59iGW4OSi&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('midterm2')">View Screenshot</button>
+<img id="midterm2" class="screenshot" src="adwawdfg.png">
+<p>
+    In this activity, I used Pivot Tables to summarize and analyze large sets of data in Microsoft Excel. 
+    I organized the data into meaningful categories and created charts to visually present the results. 
+    This task improved my ability to analyze data and present information clearly through visualizations.
+    </p>
+</li>
+
+<li>
+<strong>Midterm Task 3. Normalization using Power Query</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=1r3CxFGaiCUtIRbQmY2sDR3OHuKP1Uq-u&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('midterm3')">View Screenshot</button>
+<img id="midterm3" class="screenshot" src="data_model_Ss.png">
+<p>
+    In this activity, I used Power Query to normalize and transform the dataset into a more structured format. 
+    The process involved separating and organizing data into tables that follow proper data relationships. 
+    This helped me understand how normalization improves data management and analysis.
+    </p>
+</li>
+
+<li>
+<strong>Practice Task 1 Demo File for Data Preparation and Cleaning</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=10abBNWTcA-2WZy_AA1nRK3-okgcMHjja&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('screenshot1')">View Screenshot</button>
+<img id="screenshot1" class="screenshot" src="Screenshot%202026-03-13%20094932.png">
+<p>
+    In this practice activity, I applied different techniques for cleaning and preparing data in Excel. 
+    I identified errors, removed duplicates, and formatted the dataset to make it easier to analyze. 
+    This exercise strengthened my understanding of the data preparation process.
+    </p>
+</li>
+
+<li>
+<strong>Practice Task_2_MS Excel Functions</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=1Fplcsw0MnVBrpz9MvqRwZwj59iGW4OSi&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('screenshot2')">View Screenshot</button>
+<img id="screenshot2" class="screenshot" src="Screenshot%202026-03-13%20095952.png">
+<p>
+    In this activity, I practiced using different Microsoft Excel functions to perform calculations and analyze data. 
+    Functions such as SUM, AVERAGE, and IF were used to automate data processing tasks. 
+    This helped me improve my efficiency in handling and analyzing spreadsheet data.
+    </p>
+</li>
+
+<li>
+<strong>Practice Task 3_Demo Creating Dashboards in Excel</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=1-Jkvhx0_amKv5fgsK49Aw3-Y7PSJC9Ox&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('screenshot3')">View Screenshot</button>
+<img id="screenshot3" class="screenshot" src="adawdawd.png">
+<p>
+    In this activity, I created a simple dashboard in Excel to visually present important data insights. 
+    I used charts, tables, and formatting tools to organize the information in a clear and interactive way. 
+    This task helped me understand how dashboards can make data easier to interpret and present.
+    </p>
+</li>
+
+<li>
+<strong> Task 4. Power Query Demo</strong><br>
+Link: <a href="https://drive.usercontent.google.com/download?id=1uaWEnf-oVF6uMrAdd7IafggTir7_C-A-&export=download&authuser=0" target="_blank">Download</a><br>
+<button class="view-btn" onclick="toggleScreenshot('screenshot4')">View Screenshot</button>
+<img id="screenshot4" class="screenshot" src="awdwada.png">
+<p>
+    In this activity, I explored the basic features of Power Query in Microsoft Excel. 
+    I used it to import, transform, and organize data from different sources. 
+    This helped me learn how Power Query can automate data preparation and make data analysis more efficient.
+    </p>
+</li>
+
+</ul>
+
+</section>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function showPage(pageId){
+document.querySelectorAll('.page').forEach(page=>{
+page.classList.remove('active');
+});
+document.getElementById(pageId).classList.add('active');
+}
+
+function toggleScreenshot(id){
+const img=document.getElementById(id);
+img.style.display=img.style.display==="block"?"none":"block";
+}
+
+</script>
+
 </body>
 </html>
